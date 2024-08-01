@@ -108,6 +108,8 @@ function ProtectedRoute({children}) {
       }
       else{
         dispatch(HideLoading())
+        
+        console.log(response.message);
         message.error(response.message)
       }
     }

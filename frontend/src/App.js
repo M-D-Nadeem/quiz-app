@@ -42,8 +42,8 @@ function App() {
         <Route path="/profile" element={<ProtectedRoute><ProfilePage/></ProtectedRoute>}/>
         <Route path="/user/write-exam/:id" element={<ProtectedRoute><WriteExam/></ProtectedRoute>}/>
 
-        <Route path="/quiz/ai" element={<AiPowerPageComponent />} />
-        <Route path="/chat" element={<ChatContainer />} />
+        <Route path="/quiz/ai" element={<ProtectedRoute><AiPowerPageComponent /></ProtectedRoute>} />
+        <Route path="/chat" element={<ProtectedRoute><ChatContainer /></ProtectedRoute>} />
       </Routes>
     </Router>
     </>

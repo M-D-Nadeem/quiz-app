@@ -4,9 +4,12 @@ import { useNavigate } from 'react-router-dom'
 function PublicRoute({children}) {
   const navigate = useNavigate();
   useEffect(()=>{
-   if(localStorage.getItem('token')){
+    if(localStorage.getItem('token')){
     navigate('/');
    }
+   else{
+    navigate('/login');
+}
   },[])
   return (
     <div>

@@ -1,19 +1,19 @@
 import React from 'react'
 import {Form, message} from 'antd'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { loginUser } from '../../../apicalls/users'
 import { useDispatch } from 'react-redux'
 import { HideLoading, ShowLoading } from '../../../redux/loaderSlice'
 
 function LoginPage() {
   const dispatch = useDispatch()
-  const navigate = useNavigate()
   const onFinish = async(values) => {
     try{
       dispatch(ShowLoading())
       const response = await loginUser(values)
       dispatch(HideLoading())
       if(response.success){
+        console.log(response);
         message.success(response.message);
         localStorage.setItem("token",response.data)
         window.location.href="/";
